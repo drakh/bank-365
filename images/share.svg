@@ -1,0 +1,16 @@
+<svg version="1.1" id="Layer_3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 44.6 44.6" style="enable-background:new 0 0 44.6 44.6;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#SVGID_1_);}
+	.st1{fill:#132A3B;}
+</style>
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="0" y1="22.3179" x2="44.6358" y2="22.3179">
+	<stop  offset="0" style="stop-color:#0EF7B0"/>
+	<stop  offset="1" style="stop-color:#0CDAE0"/>
+</linearGradient>
+<circle class="st0" cx="22.3" cy="22.3" r="22.3"/>
+<polygon class="st1" points="28.4,32 9.3,22.7 28.1,13.8 28.7,15.2 12.7,22.7 29.1,30.7 "/>
+<circle class="st1" cx="28.6" cy="14.3" r="4.5"/>
+<circle class="st1" cx="28.6" cy="31.4" r="4.5"/>
+<circle class="st1" cx="10.9" cy="22.8" r="4.5"/>
+</svg>
