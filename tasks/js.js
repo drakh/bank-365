@@ -9,8 +9,7 @@ var gulp = require('gulp'),
 
 gulp.task('js', function() {
   gulp.src('./js/common.js')
-    .pipe(rename('common.min.js'))
-    .pipe(uglify())
+    //.pipe(uglify())
     .pipe(gulp.dest('./js/'))
     .pipe(gulp.dest('./build/js/'));
 });

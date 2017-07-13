@@ -1,0 +1,58 @@
+.subscription {
+	padding-bottom: 0;
+	.row {
+		margin-bottom: 2.5rem;
+	}
+	.pure-g {
+		width: 100%;
+	}
+	header {
+		@include rem('font-size', 28px);
+		text-align: center;
+		color: $grey-text;
+		padding-bottom: 2rem;
+	}
+	input {
+		border: none;
+		border-bottom: 2px solid $dark;
+		text-align: center;
+		width: 64%;
+		display: block;
+		margin: 0 auto;
+	}
+	a {
+		width: 9rem;
+		margin: 3rem auto;
+		padding: 0.35rem 0;
+		@include rem('font-size', 18px);
+	}
+}
+
+.social {
+	padding-bottom: 5.5rem;
+	ul,
+	li {
+		padding-left: 0;
+	}
+	ul {
+		list-style: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	li {
+		margin: 0 1rem;
+		a {
+			text-decoration: none;
+			@include rem('font-size', 22px);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 2.5rem;
+			height: 2.5rem;
+			color: $grey-text;
+			border: 1px solid $grey-text;
+			border-radius: 50%;
+		}
+	}
+}

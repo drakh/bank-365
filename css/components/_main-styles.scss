@@ -493,7 +493,7 @@ aside
 }
 nav
 {
-  padding-top      : 1rem;
+  padding-top      : 1.5rem;
   padding-bottom   : 1rem;
   z-index          : 6;
   display          : block;
@@ -1207,5 +1207,19 @@ aside {
 p {
   span {
 background-color: $green;
+  }
+  i {
+    font-style: normal;
+    position: relative;
+    display: inline-block;
+    &:before {
+      content: "";
+      width: 100%;
+      position: absolute;
+      bottom: -0.4rem;
+      left: 0;
+      height: 0.125rem;
+      background-color: $green;
+    }
   }
 }

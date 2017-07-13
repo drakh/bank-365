@@ -6,7 +6,7 @@ var gulp = require('gulp'),
   browserSync = require('browser-sync');
 
 gulp.task('browser-sync', function() {
-  browserSync.init(["./html/*.html", "./**/*.js", "./**/*.css",
+  browserSync.init(["./*.html", "./**/*.js", "./**/*.css",
     "./libs/*"
   ], {
     server: {
