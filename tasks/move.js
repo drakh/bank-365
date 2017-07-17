@@ -6,9 +6,7 @@ var gulp = require('gulp');
 
 var filesToMove = [
   './*.html',
-  './img/*',
-  '!./img/for-optimization',
-  './img/icons/*',
+  './images/*',
   './fonts/**/*',
   './libs/**/*'
 ];

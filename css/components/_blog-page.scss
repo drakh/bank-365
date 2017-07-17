@@ -1,17 +1,110 @@
 .blog-section {
 	padding-top: 14rem;
+	@media #{$mobile}{
+		padding-top: 7.2rem;
+		padding-bottom: 2rem;
+		@include rem('padding-left', 30px);
+		@include rem('padding-right', 30px);
+	}
 	.tags {
 		margin-right: 2rem;
+		margin-bottom: 3.4rem;
+		@media #{$mobile} {
+			margin: 0 0 2.9rem 0;
+		}
+		a {
+			margin-right: 0.3rem;
+			@media #{$mobile} {
+				margin-right: 0;
+				margin-bottom: 0;
+			}
+		}
 	}
 	.inner {
 		header {
 			margin-bottom: 1.2rem;
+			@media #{$mobile} {
+				display: inline-block;
+				padding-right: 0;
+				@include rem('font-size', 25px);
+				line-height: 1.8rem;
+				padding-bottom: 0.8rem;
+				margin-bottom: 0.3rem;
+				&:before {
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+.blog-side-bar {
+	@media #{$mobile} {
+		display: none;
+	}
+	img {
+		margin-left: auto;
+		display: block;
+	}
+}
+
+.tag-section {
+	padding-top: 10.3rem;
+	@media #{$mobile} {
+		padding-top: 6.9rem;
+	}
+	.blog-side-bar {
+		margin-top: 3.9rem;
+	}
+	.last-articles .related:nth-child(odd) {
+		@media #{$mobile} {
+			flex-direction: row;
+		}
+		.image-inner {
+			@media #{$mobile} {
+			padding-left: 1rem;
+			padding-right: 0;
+			}
+		}
+	}
+	.last-articles .related:nth-child(even) {
+		@media #{$mobile} {
+			flex-direction: row-reverse;
+		}
+		.image-inner {
+			@media #{$mobile} {
+				padding-right: 1rem;
+				padding-left: 0;
+			}
+		}
+	}
+}
+
+.author-section {
+	padding-top: 10.7rem;
+	@media #{$mobile} {
+		padding-top: 6rem;
+	}
+	.blog-side-bar {
+		margin-top: 3.9rem;
+	}
+	.tags {
+		margin-bottom: 4.8rem;
+		p {
+			@include rem('line-height', 48px);
+		}
+		@media #{$mobile} {
+			display: none;
 		}
 	}
 }
 
 .blog-section > .inner {
 	padding-bottom: 11rem;
+	@media #{$mobile} {
+		padding-bottom: 0;
+		border: none;
+	}
 }
 
 .breadcrumbs {
@@ -19,36 +112,104 @@
 	align-items: center;
 	list-style: none;
 	padding: 0;
+	@media #{$mobile} {
+		padding: 0.2rem 1.2rem 0 1.2rem;
+	}
 	li {
 		padding: 0;
 		margin-right: 2.25rem;
 		position: relative;
-		&:before {
-			content: "/";
-			position: absolute;
-			right: -1.5rem;
-			color: $green;
+		@media #{$mobile}{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-right: 0;
+			border: 1px solid $green;
+			border-radius: 1rem 0 0 1rem;
+			flex-basis: 50%;
+			padding: 0.2rem 0;
+		}
+		a {
+			display: inline-block;
+			position: relative;
+			@media #{$mobile}{
+				@include rem('font-size', 18px);
+				color: $grey-text;
+			}
+			&:before {
+				content: "/";
+				position: absolute;
+				right: -1.5rem;
+				color: $green;
+				@media #{$mobile}{
+					content: none;
+				}
+			}
 		}
 		&:last-child {
 			&:before {
 				content: none;
 			}
 		}
+		&:not(.active) {
+			display: none;
+			@media #{$mobile}{
+				display: flex;
+				border-radius: 0 1rem 1rem 0;
+			}
+		}
 	}
 	.active {
-		&:after {
-			content: "";
-			bottom: -0.5rem;
-			width: 100%;
-			height: 2px;
+		display: flex;
+		@media #{$mobile} {
 			background-color: $green;
-			left: 0;
-			position: absolute;
+			color: $dark;
+		}
+		a {
+			display: inline-block;
+			position: relative;
+			@media #{$mobile} {
+				color: $dark;
+			}
+			&:after {
+				content: "";
+				bottom: -0.5rem;
+				width: 100%;
+				height: 2px;
+				background-color: $green;
+				left: 0;
+				position: absolute;
+				transition: width 0.4s;
+				@media #{$mobile}{
+					content: none;
+				}
+			}
 		}
 	}
 	a {
 		text-decoration: none;
 		color: $dark;
+	}
+	.sub-list {
+		display: flex;
+		list-style: none;
+		padding-left: 2.25rem;
+		a {
+			&:after {
+				width: 0;
+			}
+			&:hover {
+				&:after {
+					width: 100%;
+				}
+			}
+		}
+		li {
+			display: inline-block;
+		}
+		@media #{$mobile}{
+			display: none;
+		}
 	}
 }
 
@@ -56,13 +217,30 @@ section {
 	.articles {
 		padding: 4.5rem 0 4.5rem 0;
 		border-bottom: 2px solid $green;
+		@media #{$mobile} {
+			padding: 3.8rem 0 0 0;
+		}
 		article {
 			margin-bottom: 3.8rem;
+			@media #{$mobile} {
+				margin-bottom: 4.4rem;
+			}
 			header {
 				padding-right: 18rem;
 			}
 			img {
 				margin: 0.3rem 0 2rem 0;
+				@media #{$mobile} {
+					max-width: 100%;
+					margin-bottom: 0.6rem;
+				}
+			}
+			p {
+				@media #{$mobile} {
+					@include rem('font-size', 13px);
+					@include rem('line-height', 13px);
+					margin-bottom: 0.6rem;
+				}
 			}
 			.read-more {
 				background-color: transparent;
@@ -71,6 +249,10 @@ section {
 			a {
 				padding: .4rem 1.4rem;
 				@include rem('font-size', 18px);
+				@media #{$mobile} {
+					padding: 0.1rem 0.7rem;
+					@include rem('font-size', 14px);
+				}
 			}
 		}
 		.author-info {
@@ -86,7 +268,80 @@ section {
 	text-align: center;
 	color: $dark;
 	@include rem('font-size', 38px);
+	@media #{$mobile} {
+		display: none;
+	}
 }
+
+.categories-mobile {
+	display: none;
+	margin-bottom: 4rem;
+	@media #{$mobile} {
+		display: block;
+	}
+	.categories-title {
+		text-align: center;
+		@include rem('font-size', 25px);
+		margin: 1.5rem 0 0.5rem 0;
+	}
+	.category-list {
+		display: flex;
+		justify-content: space-around;
+		ul {
+			list-style: none;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding-left: 0;
+			flex-grow: 1;
+			flex-wrap: wrap;
+		}
+		li {
+			padding-left: 0;
+			display: flex;
+			flex-grow: 1;
+			justify-content: center;
+			color: $grey-text;
+			@include rem('font-size', 14px);
+			padding: 0.1em 0;
+			border: 1px solid $green;
+			border-right: none;
+			transition: background-color 0.4s;
+			&:hover,
+			&:active {
+				background-color: $green;
+			}
+			&:first-child {
+				border-radius: 1rem 0 0 1rem;
+			}
+			&:last-child {
+				border-right: 1px solid $green;
+				border-radius: 0 1rem 1rem 0;
+			}
+		}
+		.switch {
+			background-color: $green;
+		}
+		a {
+			text-decoration: none;
+			color: $grey-text;
+		}
+	}
+}
+
+.Rounded_Rectangle_1 {
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(6, 255, 163);
+	background-color: rgba(6, 255, 163, 0);
+	position: absolute;
+	left: 27px;
+	top: 1427px;
+	width: 318px;
+	height: 28px;
+	z-index: 226;
+}
+
 
 .last-articles {
 	flex-wrap: wrap;
@@ -101,14 +356,28 @@ section {
 			margin-bottom: 1rem;
 			@include rem('font-size', 28px);
 			@include rem('line-height', 34px);
+			@media #{$mobile} {
+				@include rem('font-size', 25px);
+				line-height: 1.8rem;
+				padding-bottom: 0.8rem;
+				margin-bottom: 0.5rem;
+			}
 		}
 		.author-info {
 			padding-bottom: 0.8rem;
+			@media #{$mobile} {
+				padding-bottom: 0.5rem;
+			}
 		}
 	}
 	.author-info {
 		span {
 			color: $grey-text;
+			&:before {
+				@media #{$mobile} {
+					width: 0.6rem;
+				}
+			}
 		}
 	}
 	.related {
@@ -127,8 +396,16 @@ section {
 		display: block;
 		margin-left: auto;
 		border-radius: 50%;
+		@media #{$mobile} {
+			max-width: 100%;
+		}
 	}
 	p {
+		@media #{$mobile} {
+			@include rem('font-size', 14px);
+			@include rem('line-height', 14px);
+			margin-bottom: 0.5rem;
+		}
 		span {
 			background-color: transparent;
 			color: $green;
@@ -137,21 +414,48 @@ section {
 	a {
 		padding: .4rem 1.4rem;
 		@include rem('font-size', 18px);
+		@media #{$mobile} {
+			@include rem('font-size', 14px);
+			padding: 0.1rem 0.9rem;
+		}
 	}
 	.related {
 		border-bottom: 2px solid $green;
 		padding-bottom: 3.75rem;
 		margin-bottom: 3.75rem;
+		@media #{$mobile} {
+			padding-bottom: 2rem;
+			margin-bottom: 2rem;
+		}
 		&:nth-child(odd) {
 			flex-direction: row-reverse;
 			.inner {
 				flex-basis: 62%;
+				@media #{$mobile} {
+					flex-basis: 50%;
+				}
 				header {
 					padding-right: 16rem;
+					@media #{$mobile} {
+						padding-right: 0;
+					}
+				}
+				.author-info {
+					span {
+						@media #{$mobile} {
+							@include rem('font-size', 12px);
+							padding-left: 0.8rem;
+							margin-right: 0;
+						}
+					}
 				}
 			}
 			.image-inner {
 				flex-basis: 38%;
+				@media #{$mobile} {
+					flex-basis: 50%;
+					padding-right: 1rem;
+				}
 			}
 			img {
 				margin-right: auto;
@@ -161,12 +465,31 @@ section {
 		&:nth-child(even) {
 			.inner {
 				flex-basis: 62%;
+				@media #{$mobile} {
+					flex-basis: 50%;
+				}
 				header {
 					padding-right: 17rem;
+					@media #{$mobile} {
+						padding-right: 0;
+					}
 				}
 			}
 			.image-inner {
 				flex-basis: 38%;
+				@media #{$mobile} {
+					padding-left: 1rem;
+					flex-basis: 50%;
+				}
+			}
+			.author-info {
+				span {
+					@media #{$mobile} {
+						@include rem('font-size', 12px);
+						padding-left: 0.8rem;
+						margin-right: 0;
+					}
+				}
 			}
 		}
 	}
@@ -174,7 +497,6 @@ section {
 
 .pagination {
 	display: flex;
-	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
 	ul,
@@ -183,6 +505,9 @@ section {
 	}
 	li {
 		margin: 0 1.2rem;
+		@media #{$mobile} {
+			margin: 0 0.4rem;
+		}
 	}
 	ul {
 		list-style: none;
@@ -190,6 +515,10 @@ section {
 		align-items: center;
 		margin: 0 0.5rem;
 		@include rem('font-size', 18px);
+		@media #{$mobile} {
+			margin: 0 2rem;
+			@include rem('font-size', 16px);
+		}
 		.separate {
 			color: $green;
 		}
@@ -236,6 +565,10 @@ section {
 		transition: .4s;
 		@include rem('font-size', 18px);
 		margin: 0;
+		@media #{$mobile} {
+			@include rem('font-size', 13px);
+			padding: 0.15rem 0.8rem;
+		}
 		&:hover,
 		&:active {
 			color: $number-active;
@@ -244,3 +577,6 @@ section {
 	}
 }
 
+.substring-form {
+	margin: 0 auto;
+}

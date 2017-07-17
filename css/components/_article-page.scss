@@ -65,6 +65,9 @@ section {
    .author-info {
     margin-bottom: 1.9rem;
     padding: 0 0 1rem 0;
+    @media #{$mobile} {
+      padding-bottom: 0.5rem;
+    }
     @include rem('font-size', 16px);
     span {
      margin-right: .3rem;
@@ -72,6 +75,10 @@ section {
      position: relative;
      display: inline-block;
      background-color: transparent;
+         @media #{$mobile} {
+           @include rem('font-size', 15px);
+      padding-left: 1rem;
+    }
      &:before {
       content: "";
       position: absolute;
@@ -81,11 +88,19 @@ section {
       background-color: $green;
       height: 0.125rem;
       width: 0.78rem;
+               @media #{$mobile} {
+          height: 1px;
+          left: 0;
+          top: 60%;
+    }
     }
   }
 }
 article {
   padding-left: 0.25rem;
+  @media #{$mobile} {
+    padding-left: 0;
+  }
   table {
     margin: 4rem 0 2.8rem 0;
   }
@@ -201,18 +216,41 @@ table {
 .tags {
   margin: 2.9rem 0 0 0.5rem;
   p {
-    padding-bottom: 1rem;
+    padding-bottom: 1.5rem;
+    padding-right: 22rem;
     margin: 0 0 1.2rem 0;
     border-bottom: 2px solid $green;
     @include rem('font-size', 38px);
+    @media #{$mobile} {
+      padding-right: 0;
+      padding: 0.5rem;
+      @include rem('font-size', 25px);
+      text-align: center;
+      margin-bottom: 0.6rem;
+    }
+  }
+  a {
+    margin-right: 1.25rem;
+    margin-bottom: 0.625rem;
+    display: inline-block;
+    &:hover,
+    &:active {
+      span {
+        background-color: $green;
+      }
+    }
   }
   span {
-    margin-right: 1.25rem;
     display: inline-block;
     @include rem('font-size', 16px);
     background-color: $tag-grey;
     color: $grey-text;
     padding: 0.5rem 1rem;
+    transition: background-color 0.4s;
+    @media #{$mobile} {
+      @include rem('font-size', 13px);
+      padding: 0.3rem 0.5rem;
+    }
   }
 }
 
@@ -325,6 +363,7 @@ section {
       i {
         color: $green;
         @include rem('font-size', 40px);
+        transition: color 0.5s;
       }
       .arrows-prev {
         position: absolute;
@@ -335,6 +374,15 @@ section {
         position: absolute;
         right: -5.5rem;
         top: -4.3rem;
+      }
+      .arrows-prev,
+      .arrows-next {
+        &:hover,
+        &:active {
+          i {
+            color: $dark;
+          }
+        }
       }
     }
   }
@@ -357,7 +405,7 @@ section {
       position: absolute;
       width: 14.5rem;
       height: 100%;
-      box-shadow: inset -60px 0px 80px -30px #f4f6f9;
+      box-shadow: inset -60px 0px 80px -30px #FFFFFF;
       top: 0;
       right: 0;
       z-index: 10;
@@ -391,6 +439,7 @@ section {
       width: 67%;
       height: 67%;
       margin: 0 auto;
+      transition: .4s;
       &:before {
         content: none;
       }

@@ -1,7 +1,12 @@
+@import "variables";
+
 .subscription {
 	padding-bottom: 0;
 	.row {
 		margin-bottom: 2.5rem;
+		@media #{$mobile} {
+			margin-bottom: 2.1rem;
+		}
 	}
 	.pure-g {
 		width: 100%;
@@ -11,6 +16,11 @@
 		text-align: center;
 		color: $grey-text;
 		padding-bottom: 2rem;
+		@media #{$mobile} {
+			@include rem('font-size', 20px);
+			line-height: 1.4rem;
+			padding: 0.8rem 4% 0.5rem 4%;
+		}
 	}
 	input {
 		border: none;
@@ -19,17 +29,28 @@
 		width: 64%;
 		display: block;
 		margin: 0 auto;
+		@media #{$mobile} {
+			@include rem('font-size', 14px);
+		}
 	}
 	a {
 		width: 9rem;
 		margin: 3rem auto;
 		padding: 0.35rem 0;
 		@include rem('font-size', 18px);
+		@media #{$mobile} {
+			width: 8.1rem;
+			@include rem('font-size', 14px);
+			margin: 1.2rem auto;
+		}
 	}
 }
 
 .social {
 	padding-bottom: 5.5rem;
+	@media #{$mobile} {
+		padding-bottom: 4rem;
+	}
 	ul,
 	li {
 		padding-left: 0;
@@ -53,6 +74,20 @@
 			color: $grey-text;
 			border: 1px solid $grey-text;
 			border-radius: 50%;
+			transition: 0.4s;
+			&:hover,
+			&:active {
+				color: $green;
+				border-color: $green;
+			}
 		}
+	}
+}
+
+footer.main {
+	div {
+	@media #{$mobile} {
+padding: 0 5%;
+	}
 	}
 }

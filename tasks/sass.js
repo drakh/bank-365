@@ -23,7 +23,7 @@ gulp.task('sass', function () {
       includePaths: ['scss', 'node_modules/susy/sass'],
       outputStyle: 'expanded'
     }))
-    .pipe(autoprefixer('last 3 version'))
+    .pipe(autoprefixer('last 4 version'))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./css'))
     .pipe(concat('styles.css'))

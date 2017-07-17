@@ -64,7 +64,7 @@ body
     z-index          : 999;
     width            : 100%;
     height           : 100%;
-    background-color : $bg_grey;
+    background-color : #FFF;
     display          : none;
     transform        : translateZ(9000px);
     div
@@ -129,7 +129,7 @@ body
       }
     }
   }
-  background-color : $bg;
+  background-color : #FFF;
   color            : $base_font_color;
   font-size        : 1.375rem;
   transition       : background-color 250ms;
@@ -161,6 +161,9 @@ body
         align-items         : center;
         padding-top         : 4rem;
         padding-bottom      : 1rem;
+        @media #{$mobile} {
+          padding-top: 2.2rem;
+        }
         img
         {
           position : absolute;
@@ -506,7 +509,10 @@ nav
     background     : -webkit-linear-gradient(top, rgba($bg_grey, 0.9) 30%, rgba($bg_grey, 0) 100%);
     background     : linear-gradient(to bottom, rgba($bg_grey, 0.9) 30%, rgba($bg_grey, 0) 100%);
     */
-    background-color : $bg_grey;
+    background-color : #FFF;
+    @media #{$mobile} {
+      padding-top: 1rem;
+    }
     header
     {
       position : relative;
@@ -615,6 +621,7 @@ nav
       }*/
       &:nth-of-type(4)
       {
+        padding-right: 6rem;
         padding-left : 2rem;
         text-align   : right;
         a
@@ -628,11 +635,13 @@ nav
       &:nth-of-type(5)
       {
         padding-left : 2rem;
+        padding-right: 9rem;
         text-align   : right;
         a
         {
           &:after
           {
+            width: 95% !important;
             right : 0;
           }
         }
@@ -706,6 +715,9 @@ nav
   transition : max-width 500ms;
   transform  : scale(1);
   cursor     : pointer;
+  @media #{$mobile} {
+    max-width: 15rem;
+  }
   &.small
   {
     max-width : 8rem;
@@ -1222,4 +1234,48 @@ background-color: $green;
       background-color: $green;
     }
   }
+}
+
+body {
+  .wrapper {
+    .menu-sticky {
+      ul {
+        li {
+          a {
+            transition: 0.4s;
+          }
+        }
+      }
+      #search {
+        transition: top 0.4s;
+        img {
+          width: 100%;
+          transition: width 0.4s;
+        }
+      }
+    }
+  }
+}
+
+body {
+  .wrapper {
+    .menu-sticky {
+      .logo {
+        max-width: 10.8rem;
+      }
+  ul li a {
+    font-size: 1.125rem;
+  }
+  #search {
+    top: 1.4rem;
+    img {
+          width: 60%;
+    }
+  }
+}
+  }
+}
+
+body .wrapper .menu-sticky ul li:nth-of-type(5) a:after {
+  width: 62% !important;
 }
