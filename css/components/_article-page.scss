@@ -470,7 +470,7 @@ section {
      span {
        margin-left: 1rem;
         @media #{$mobile} {
-          padding: 1rem 0 1.8rem 0;
+          //padding: 1rem 0 1.8rem 0;
           margin-left: 0.5rem;
           @include rem('font-size', 14px);
         }
@@ -915,7 +915,7 @@ section {
      @include rem('font-size', 13px);
 margin-top: 1.7rem;
 width: 6.2rem;
-padding: 0.3rem 0;
+padding: 0.5em 1em;
    }
    i {
     line-height: 0;

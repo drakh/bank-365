@@ -152,7 +152,7 @@ var App = {
 		if (Cookie.read('consent') != 'yess')
 		{
 			$('cookie_l').addClass('v');
-			//$('cookie_b').addEvent('click', this.set_cookie.bind(this));
+			$('cookie_b').addEvent('click', this.set_cookie.bind(this));
 		}
 	},
 	set_cookie: function (e)

@@ -259,10 +259,10 @@ section {
 				color: $green;
 			}
 			a {
-				padding: .4rem 1.4rem;
+				padding: .65em 1em 0.4em 1em;
 				@include rem('font-size', 18px);
 				@media #{$mobile} {
-					padding: 0.1rem 0.7rem;
+					padding: .65em 1em .5em 1em;
 					@include rem('font-size', 14px);
 				}
 			}
@@ -315,7 +315,7 @@ section {
 			justify-content: center;
 			color: $grey-text;
 			@include rem('font-size', 14px);
-			padding: 0.1em 0;
+			padding: .5em 0;
 			border: 1px solid $green;
 			border-right: none;
 			transition: background-color 0.4s;
@@ -424,11 +424,11 @@ section {
 		}
 	}
 	a {
-		padding: .4rem 1.4rem;
+		    padding: .65em 1em 0.4em 1em;
 		@include rem('font-size', 18px);
 		@media #{$mobile} {
 			@include rem('font-size', 14px);
-			padding: 0.1rem 0.9rem;
+			padding: .65em 1em .5em 1em;
 		}
 	}
 	.related {
@@ -572,14 +572,14 @@ section {
 	.pure-button {
 		color: $number;
 		background-color: transparent;
-		padding: 0.4rem 1.4rem;
+		padding: 0.65em 1em 0.4em 1em;
 		border: 2px solid $number;
 		transition: .4s;
 		@include rem('font-size', 18px);
 		margin: 0;
 		@media #{$mobile} {
 			@include rem('font-size', 13px);
-			padding: 0.15rem 0.8rem;
+			padding: 0.65em 1em 0.4em 1em;
 		}
 		&:hover,
 		&:active {
