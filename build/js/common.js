@@ -13,7 +13,7 @@
 		}
 	});
 
-/*	var slider = $("#related-posts").slick({
+	var slider = $("#related-posts").slick({
 		slidesToShow: 1.1,
 		slidesToScroll: 1,
 		infinity: false,
@@ -24,13 +24,13 @@
 		nextArrow: $(".arrows-next"),
 		responsive: [
 		{
-      breakpoint: 769,
-      settings: {
-        slidesToShow: 1
-      }
-    }
+			breakpoint: 769,
+			settings: {
+				slidesToShow: 1
+			}
+		}
 		]
-	});*/
+	});
 
 	$("input").on("input", function(o) {
 		"LABEL" == o.target.parentNode.tagName && $(this).val().length > 0 ? $(this).parent().addClass("focused") : $(this).parent().removeClass("focused")
