@@ -575,7 +575,9 @@ nav
       {
         padding    : 0;
         margin     : 0;
-        width      : 20%;
+        @media #{$mobile} {
+          width: 100%;
+        }
         &.l
         {
           display : none;
@@ -689,6 +691,12 @@ nav
   aside
   {
     left : 0;
+  }
+  @media #{$mobile} {
+    .progress-bar {
+      transition: .4s;
+      opacity: 0;
+    }
   }
   .patty
   {
@@ -868,8 +876,8 @@ h1, h2, h3, h4, h5, h6
   position : absolute;
   height   : auto;
   width    : 2rem;
-  left     : 1rem;
-  top      : 1rem;
+  left     : 1.8rem;
+  top      : 1.8rem;
   z-index  : 4;
   cursor   : pointer;
   .g
@@ -1232,6 +1240,9 @@ background-color: $green;
       left: 0;
       height: 0.125rem;
       background-color: $green;
+      @media #{$mobile} {
+        bottom: 0;
+      }
     }
   }
 }
@@ -1253,6 +1264,9 @@ body {
           transition: width 0.4s;
         }
       }
+      #back {
+        display: none;
+      }
     }
   }
 }
@@ -1262,6 +1276,12 @@ body {
     .menu-sticky {
       .logo {
         max-width: 10.8rem;
+      }
+      .progress-bar {
+        @media #{$mobile} {
+         top: 5.4rem;
+         position: fixed;
+        }
       }
   ul li a {
     font-size: 1.125rem;

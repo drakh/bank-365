@@ -66,6 +66,12 @@
 			padding-right: 0;
 			}
 		}
+		img {
+			@media #{$mobile} {
+				margin-right: 0;
+				margin-left: auto;
+			}
+		}
 	}
 	.last-articles .related:nth-child(even) {
 		@media #{$mobile} {
@@ -76,6 +82,12 @@
 				padding-right: 1rem;
 				padding-left: 0;
 			}
+			img {
+			@media #{$mobile} {
+				margin-right: auto;
+				margin-left: 0;
+			}
+		}
 		}
 	}
 }
@@ -575,8 +587,4 @@ section {
 			border-color: $number-active;
 		}
 	}
-}
-
-.substring-form {
-	margin: 0 auto;
 }
