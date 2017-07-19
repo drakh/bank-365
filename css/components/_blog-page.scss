@@ -776,6 +776,7 @@ body
         padding-left   : 6rem;
         flex-direction : column;
         padding-bottom : 0;
+        margin-bottom  : 1.5rem;
         header
         {
           width          : 100%;
@@ -843,6 +844,38 @@ body
             &:before
             {
               content : "3";
+            }
+          }
+        }
+        &.instagram
+        {
+          div
+          {
+            &.pure-g
+            {
+              padding-top : 1.5rem;
+            }
+          }
+          img
+          {
+            &.pure-img
+            {
+              width : 100%;
+            }
+          }
+        }
+        &.instagram, &.facebook, &.twitter
+        {
+          header
+          {
+            position     : relative;
+            padding-left : 2em;
+            .fa
+            {
+              font-size : 1.6em;
+              position  : absolute;
+              left      : 0;
+              top       : 0.2em;
             }
           }
         }
