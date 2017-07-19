@@ -225,7 +225,10 @@ var art_sharer = new Class({
 	},
 	clr_tm: function (e)
 	{
-		e.stop();
+		if (e)
+		{
+			e.stop();
+		}
 		if (this.timer)
 		{
 			clearTimeout(this.timer);
@@ -233,7 +236,10 @@ var art_sharer = new Class({
 	},
 	mk_leave: function (e)
 	{
-		e.stop();
+		if (e)
+		{
+			e.stop();
+		}
 		this.clr_tm();
 		this.timer = this.hide_share.delay(500, this);
 	},
