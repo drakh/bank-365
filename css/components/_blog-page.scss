@@ -847,8 +847,20 @@ body
             }
           }
         }
-        &.instagram
+        &.social
         {
+          header
+          {
+            position     : relative;
+            padding-left : 2em;
+            .fa
+            {
+              font-size : 1.6em;
+              position  : absolute;
+              left      : 0;
+              top       : 0.2em;
+            }
+          }
           div
           {
             &.pure-g
@@ -863,19 +875,24 @@ body
               width : 100%;
             }
           }
-        }
-        &.instagram, &.facebook, &.twitter
-        {
-          header
+          a
           {
-            position     : relative;
-            padding-left : 2em;
-            .fa
+            &.pure-button
             {
-              font-size : 1.6em;
-              position  : absolute;
-              left      : 0;
-              top       : 0.2em;
+              margin-top     : 1.5rem;
+              font-size      : $sz_smaller;
+              font-weight    : bold;
+              padding-top    : 0.25em;
+              padding-bottom : 0.25em;
+              padding-left   : 1em;
+              padding-right  : 1em;
+              margin-left    : 0;
+              margin-right   : auto;
+              display        : inline-block;
+            }
+            &:hover
+            {
+              transform : scale(1);
             }
           }
         }
