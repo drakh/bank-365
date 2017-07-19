@@ -772,7 +772,6 @@ body
 
       &.side-section
       {
-        border         : 1px solid #f00;
         text-align     : left;
         padding-left   : 6rem;
         flex-direction : column;
@@ -792,63 +791,66 @@ body
             display : none;
           }
         }
-        article
+        &.top-read
         {
-          width         : 100%;
-          position      : relative;
-          padding-left  : 4rem;
-          margin-bottom : $sz;
-          header
+          article
           {
-            font-size       : $sz;
-            font-weight     : bold;
-            border-bottom   : none;
-            padding-bottom  : 0;
-            text-decoration : none;
-            color           : $grey-text;
+            width         : 100%;
+            position      : relative;
+            padding-left  : 4rem;
+            margin-bottom : $sz;
+            header
+            {
+              font-size       : $sz;
+              font-weight     : bold;
+              border-bottom   : none;
+              padding-bottom  : 0;
+              text-decoration : none;
+              color           : $grey-text;
+              &:before
+              {
+                display : none;
+              }
+            }
+            section
+            {
+              &.author-info
+              {
+                margin-bottom  : 0;
+                padding-bottom : 0;
+                font-size      : $sz_small*0.8;
+                font-weight    : bold;
+              }
+            }
             &:before
             {
-              display : none;
+              content    : "1";
+              color      : $grey;
+              display    : block;
+              position   : absolute;
+              width      : 4rem;
+              top        : 0;
+              left       : 0;
+              font-size  : $sz_big;
+              text-align : center;
             }
-          }
-          section
-          {
-            &.author-info
+            &:nth-of-type(2)
             {
-              margin-bottom  : 0;
-              padding-bottom : 0;
-              font-size      : $sz_small*0.8;
-              font-weight    : bold;
+              &:before
+              {
+                content : "2";
+              }
             }
-          }
-          &:before
-          {
-            content    : "1";
-            color      : $grey;
-            display    : block;
-            position   : absolute;
-            width      : 4rem;
-            top        : 0;
-            left       : 0;
-            font-size  : $sz_big;
-            text-align : center;
-          }
-          &:nth-of-type(2)
-          {
-            &:before
+            &:nth-of-type(3)
             {
-              content : "2";
-            }
-          }
-          &:nth-of-type(3)
-          {
-            &:before
-            {
-              content : "3";
+              &:before
+              {
+                content : "3";
+              }
             }
           }
         }
-        &.social
+        &.soc
         {
           header
           {
@@ -894,6 +896,114 @@ body
             &:hover
             {
               transform : scale(1);
+            }
+          }
+          ul
+          {
+            padding    : 0;
+            margin     : 0;
+            margin-top : 1.5rem;
+            display    : block;
+            width      : 100%;
+            li
+            {
+              display : block;
+              width   : 100%;
+              padding : 0;
+              margin  : 0;
+              a
+              {
+                border        : none;
+                border-radius : 0;
+              }
+              header
+              {
+                border-bottom : none;
+                font-size     : $sz_smaller;
+                display       : block;
+                padding-left  : 0;
+                div
+                {
+                  display        : flex;
+                  flex-direction : row;
+                  width          : 100%;
+                  line-height    : 1em;
+                  margin-bottom  : 0.5rem;
+                  strong, span
+                  {
+                    display   : block;
+                    flex-grow : 1;
+                  }
+                  span
+                  {
+                    color      : $grey;
+                    text-align : right;
+                  }
+                }
+                a
+                {
+                  font-size       : $sz_smaller;
+                  color           : $grey;
+                  display         : block;
+                  height          : auto;
+                  line-height     : 1rem;
+                  font-weight     : normal;
+                  text-decoration : none;
+                }
+              }
+              article
+              {
+                p
+                {
+                  $dsz : $sz_small*0.8;
+                  font-size   : $dsz;
+                  line-height : 1.2em;
+                  a
+                  {
+                    color     : $green;
+                    font-size : $dsz;
+                    display   : inline;
+                  }
+                }
+              }
+            }
+          }
+          &.tw
+          {
+            ul
+            {
+              li
+              {
+                article
+                {
+                  header
+                  {
+                    padding-left        : 3.5rem;
+                    padding-top         : 0.25rem;
+                    background-image    : url(../images/bank_icon_round.png);
+                    background-repeat   : no-repeat;
+                    background-position : left top;
+                  }
+                }
+              }
+            }
+
+          }
+          &.fb
+          {
+            ul
+            {
+              li
+              {
+                article
+                {
+                  padding-left        : 3.5rem;
+                  padding-top         : 0.25rem;
+                  background-image    : url(../images/bank_icon.png);
+                  background-repeat   : no-repeat;
+                  background-position : left top;
+                }
+              }
             }
           }
         }
