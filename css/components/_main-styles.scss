@@ -625,12 +625,12 @@ body
             }*/
             &:nth-of-type(4)
             {
-              /* padding-right: 6rem;
-              padding-left : 2rem; */
-              padding    : 0;
-              position   : relative;
-              left       : -3.2rem;
-              text-align : right;
+              padding-right : 6rem;
+              padding-left  : 2rem;
+              //padding: 0;
+              /*         position: relative;
+              left: -3.2rem; */
+              text-align    : right;
               a
               {
                 &:after
@@ -641,9 +641,9 @@ body
             }
             &:nth-of-type(5)
             {
-              /* padding-left : 2rem; */
-              padding-right : 9rem;
-              text-align    : right;
+              // padding-left : 2rem;
+              //padding-right: 9rem;
+              text-align : right;
               a
               {
                 &:after

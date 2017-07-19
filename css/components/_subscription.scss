@@ -72,14 +72,13 @@
 			justify-content: center;
 			width: 2.5rem;
 			height: 2.5rem;
-			color: $grey-text;
-			border: 1px solid $grey-text;
+			color: $dark_blue;
+			border: 1px solid $dark_blue;
 			border-radius: 50%;
 			transition: 0.4s;
 			&:hover,
 			&:active {
-				color: $green;
-				border-color: $green;
+				    transform: scale(1.2);
 			}
 		}
 	}
@@ -94,7 +93,7 @@ padding: 0 5%;
 }
 
 body:not(.mobile) .wrapper section .inner .w.c.c2 {
-    max-width: 26rem;
+    //max-width: 26rem;
 }
 
 body .wrapper section .inner .w article {

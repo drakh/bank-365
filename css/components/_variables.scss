@@ -7,17 +7,17 @@ $bg_grey : #f4f6f9;
 /*$bg_grey : $white;*/
 
 $grey : #bdc9cd;
-$grey-text : #5a6a76;
+$grey-text: #5a6a76;
 $grey_light : #dee4e6;
 $grey_darker : #919a9e;
 $green : #06ffa4;
 $red : #fe7676;
-$dark : #132a3a;
-$tag-grey : #ebeef0;
-$sub-comments : #cad3d8;
-$progrees : #dde3e5;
-$number : #bdc8ce;
-$number-active : #002539;
+$dark: #132a3a;
+$tag-grey: #ebeef0;
+$sub-comments: #cad3d8;
+$progrees: #dde3e5;
+$number: #bdc8ce;
+$number-active: #002539;
 
 $grad_1 : $green;
 $grad_2 : $light_blue;
@@ -55,4 +55,5 @@ $media_w : 'screen and (min-width: 73.75em)';
 //$max_w_w:
 
 $mobile_breakpoint : $media_mb;
+
 $mobile : 'screen and (max-width: 48em)';

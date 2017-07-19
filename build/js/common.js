@@ -97,7 +97,10 @@
 		
 		jQuery('#zostan-na-linke input').on('focusout', function (event)
 		{
-			jQuery(this).removeClass('filled');
+			if (jQuery(this).val().length == 0)
+			{
+				jQuery(this).removeClass('filled');
+			}
 		});
 		
 		var cutWord = function cutWord()

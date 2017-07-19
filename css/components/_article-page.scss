@@ -114,7 +114,7 @@ body .wrapper nav aside {
     }
     & > .tags {
       @media #{$mobile} {
-        padding: 0 2.4rem;
+        padding: 0 2.2rem;
         margin-top: 1.3rem;
       }
     }
@@ -459,7 +459,7 @@ section {
     flex-wrap: wrap;
     justify-content: center;
     @media #{$mobile} {
-      padding: 0.4rem 0 1rem 0;
+      padding: 1rem 0 1.7rem 0;
     }
     a {
      display: inline-flex;
@@ -494,7 +494,7 @@ body {
       padding: 2.4rem 2.8rem 2.6rem 2.8rem;
       @media #{$mobile} {
         align-items: flex-start;
-        padding: 0.7rem 2rem 2rem 2rem;
+        padding: 0.7rem 2rem 2rem 1.8rem;
       }
     }
   }
@@ -508,10 +508,18 @@ body {
   }
   img {
     margin-left: 0.9rem;
+    width: 125px;
+    border-radius: 50%;
     @media #{$mobile} {
       max-width: 100%;
       margin: 0;
-      padding: 0 1rem;
+      margin-top: 1rem;
+      padding: 0 0.8rem;
+    }
+  }
+  .autor-conetent-inner {
+    @media #{$mobile} {
+      padding-left: 0.6rem;
     }
   }
   p {
@@ -521,7 +529,7 @@ body {
     @media #{$mobile} {
       @include rem('font-size', 12px);
       @include rem('line-height', 12px);
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.6rem;
     }
   }
   strong {
@@ -531,7 +539,9 @@ body {
     position: relative;
     display: inline-block;
     @media #{$mobile} {
-      margin-bottom: 0.2rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.6rem;
+      padding-bottom: 0.3rem;
       @include rem('font-size', 16px);
     }
     &:before {
@@ -542,6 +552,9 @@ body {
       height: 0.12rem;
       background-color: $green;
       width: 8.75rem;
+      @media #{$mobile} {
+        width: 100%;
+      }
     }
   }
   ul {
@@ -553,7 +566,7 @@ body {
       padding-left: 0;
       margin-right: 1.35rem;
       @media #{$mobile} {
-        margin-right: 1.2rem;
+        margin-right: 0.8rem;
       }
     }
     a {

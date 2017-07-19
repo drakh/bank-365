@@ -176,6 +176,7 @@
     {
       background-color : transparent;
       border           : none;
+      outline          : none;
     }
     a,
     button
@@ -741,11 +742,11 @@ section
   }
   .pure-button
   {
-    color            : $number;
+    color            : $number-active;
     background-color : transparent;
     line-height      : 1;
     padding          : .62em 1em 0.4em 1em;
-    border           : 2px solid $number;
+    border           : 2px solid $number-active;
     transition       : .4s;
     @include rem('font-size', 18px);
     margin           : 0;
