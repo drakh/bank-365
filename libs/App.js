@@ -172,6 +172,29 @@ var art_sharer = new Class({
 		this.str = '';
 		this.el = el;
 		this.shr_el = $('share_el');
+		this.shareables = document.body.getElements('.shareable');
+		this.shr_el.addEvents({
+			'mouseenter': this.clr_tm.bind(this),
+			'mouseleave': this.mk_leave.bind(this)
+		});
+		this.svgs = this.shareables.getElement('svg');
+		for (var i = 0; i < this.shareables.length; i++)
+		{
+			this.shareables[i].addEvents({
+				'mouseleave': this.mk_leave.bind(this),
+				'mouseenter': this.clr_tm.bind(this),
+				'mousedown': this.foo.bind(this),
+				'mouseup': this.foo.bind(this),
+				'click': this.show_shr_el_shareable.bind(this, i)
+			});
+			this.svgs[i].addEvents({
+				'mouseleave': this.mk_leave.bind(this),
+				'mouseenter': this.clr_tm.bind(this),
+				'mousedown': this.foo.bind(this),
+				'mouseup': this.foo.bind(this),
+				'click': this.show_shr_el_shareable.bind(this, i)
+			});
+		}
 		this.a_s = [];
 		var lis = this.shr_el.getElements('li');
 		for (var i = 0; i < lis.length; i++)
@@ -189,15 +212,30 @@ var art_sharer = new Class({
 			});
 			this.a_s[i] = a;
 		}
-		this.shr_el_sz = this.shr_el.getSize();
 		el.addEvents({
 			'mousedown': this.log_mouse_start.bind(this),
-			'mouseup': this.get_sel.bind(this)
+			'touchstart': this.log_mouse_start.bind(this),
+			'mouseup': this.get_sel.bind(this),
+			'touchend': this.get_sel.bind(this)
 		});
 		window.addEvents({
 			'mousedown': this.hide_share.bind(this),
 			'resize': this.hide_share.bind(this)
 		})
+	},
+	clr_tm: function (e)
+	{
+		e.stop();
+		if (this.timer)
+		{
+			clearTimeout(this.timer);
+		}
+	},
+	mk_leave: function (e)
+	{
+		e.stop();
+		this.clr_tm();
+		this.timer = this.hide_share.delay(500, this);
 	},
 	foo: function (e)
 	{
@@ -208,12 +246,51 @@ var art_sharer = new Class({
 		this.shr_el.setStyles({
 			'display': 'none'
 		});
+		this.shr_el.removeClass('mid');
+		this.shr_el.removeClass('down');
 		this.str = '';
 	},
 	log_mouse_start: function (e)
 	{
 		this.mouse_start = e.page;
 		this.hide_share();
+	},
+	show_shr_el_shareable: function (i, e)
+	{
+		e.stop();
+		this.hide_share();
+		var el = this.shareables[i];
+		var sv = this.svgs[i];
+		var sz = sv.getSize();
+		var pos = sv.getPosition();
+		var y_off = pos.y;
+		if (el.hasClass('share'))
+		{
+			this.shr_el.addClass('mid');
+			y_off = pos.y - 60;
+		}
+		else if (el.hasClass('images-inner'))
+		{
+			this.shr_el.addClass('down');
+			y_off = pos.y + sz.y + 20;
+		}
+		else if (el.hasClass('quote'))
+		{
+			this.shr_el.addClass('down');
+			y_off = pos.y + sz.y + 20;
+		}
+		this.show_shr_el();
+		this.shr_el.setStyles({
+			'left': (pos.x + (sz.x / 2)) - (this.shr_el_sz.x / 2),
+			'top': y_off
+		});
+	},
+	show_shr_el: function ()
+	{
+		this.shr_el.setStyles({
+			'display': 'block'
+		});
+		this.shr_el_sz = this.shr_el.getSize();
 	},
 	get_sel: function (e)
 	{
@@ -225,6 +302,8 @@ var art_sharer = new Class({
 			var ed = e.page;
 			var x = st.x;
 			var y = st.y;
+			this.show_shr_el();
+			
 			if (st.x > ed.x)
 			{
 				x = ed.x;
@@ -234,10 +313,10 @@ var art_sharer = new Class({
 				y = ed.y;
 			}
 			this.str = str;
+			
 			this.shr_el.setStyles({
-				'display': 'block',
 				'left': x,
-				'top': (y - (this.shr_el_sz.y))
+				'top': (y - (this.shr_el_sz.y * 1.1))
 			});
 		}
 	},
