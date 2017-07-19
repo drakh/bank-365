@@ -222,7 +222,7 @@ body
       z-index      : 2;
       &.nofullh
       {
-        min-height : auto;
+        min-height : 1rem;
       }
       &.dsection
       {
@@ -1353,92 +1353,4 @@ body .wrapper .menu-sticky ul li:nth-of-type(5) a:after
   background-color: #e6e6e6;
   text-decoration: none;
   border-radius: 2px; */
-}
-
-body
-{
-  .wrapper
-  {
-    section
-    {
-      &.top-read
-      {
-        border         : 1px solid #f00;
-        text-align     : left;
-        padding-left   : 6rem;
-        flex-direction : column;
-        padding-bottom : 0;
-        header
-        {
-          width          : 100%;
-          text-align     : left;
-          border-bottom  : 2px solid $green;
-          margin-bottom  : 0;
-          font-weight    : bold;
-          font-size      : $sz * 1.2;
-          padding-bottom : 0.4em;
-          &:before
-          {
-            display : none;
-          }
-        }
-        article
-        {
-          width         : 100%;
-          position      : relative;
-          padding-left  : 4rem;
-          margin-bottom : $sz;
-          header
-          {
-            font-size       : $sz;
-            font-weight     : bold;
-            border-bottom   : none;
-            padding-bottom  : 0;
-            text-decoration : none;
-            color           : $grey-text;
-            &:before
-            {
-              display : none;
-            }
-          }
-          section
-          {
-            &.author-info
-            {
-              margin-bottom  : 0;
-              padding-bottom : 0;
-              font-size      : $sz_small*0.8;
-              font-weight    : bold;
-            }
-          }
-          &:before
-          {
-            content    : "1";
-            color      : $grey;
-            display    : block;
-            position   : absolute;
-            width      : 4rem;
-            top        : 0;
-            left       : 0;
-            font-size  : $sz_big;
-            text-align : center;
-          }
-          &:nth-of-type(2)
-          {
-            &:before
-            {
-              content : "2";
-            }
-          }
-          &:nth-of-type(3)
-          {
-            &:before
-            {
-              content : "3";
-            }
-          }
-        }
-      }
-    }
-  }
 }

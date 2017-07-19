@@ -92,8 +92,8 @@ var profile = new Class({
 		el.addEvents({
 			'mouseenter': this.open.bind(this),
 			'mouseleave': this.close.bind(this),
-
-			'click'     : this.close.bind(this)
+			
+			'click': this.close.bind(this)
 		});
 		var a = el.getElement('main header a');
 		a.addEvent('click', this.toggle.bind(this));
@@ -105,16 +105,22 @@ var profile = new Class({
 	toggle: function (e)
 	{
 		e.stop();
-
-		if (this.main.hasClass('openArticle')) {
+		
+		if (this.main.hasClass('openArticle'))
+		{
 			this.a.removeClass('open');
-		} else {
+		}
+		else
+		{
 			this.a.addClass('open');
 		}
-
-		if (this.a.hasClass('open')) {
+		
+		if (this.a.hasClass('open'))
+		{
 			this.main.toggleClass('openArticle');
-		} else {
+		}
+		else
+		{
 			this.main.removeClass('openArticle');
 		}
 	},
@@ -124,12 +130,41 @@ var profile = new Class({
 	},
 	close: function ()
 	{
-		if (window.innerWidth > 740) {
+		if (window.innerWidth > 740)
+		{
 			this.a.removeClass('open');
 		}
 	}
 });
 
+var art_switcher = new Class({
+	initialize: function (el)
+	{
+		console.log('a switcher init');
+		this.el = el;
+		var s = el.getElements('.breadcrumbs .r_switch');
+		for (var i = 0; i < s.length; i++)
+		{
+			var b = s[i].getElement('button');
+			b.addEvent('click', this.switch_articles.bind(this, i))
+		}
+		this.s = s;
+	},
+	switch_articles: function (i, e)
+	{
+		e.stop();
+		for (var j = 0; j < this.s.length; j++)
+		{
+			this.s[j].removeClass('active');
+		}
+		this.el.removeClass('new');
+		if (i == 1)
+		{
+			this.el.addClass('new');
+		}
+		this.s[i].addClass('active');
+	}
+});
 var App = {
 	init: function ()
 	{
@@ -138,6 +173,11 @@ var App = {
 		this.check_cookie();
 		this.init_menus();
 		this.init_profiles();
+		var main_articles = $('main_articles');
+		if (main_articles)
+		{
+			new art_switcher(main_articles);
+		}
 	},
 	init_profiles: function ()
 	{
@@ -163,7 +203,7 @@ var App = {
 	},
 	init_menus: function ()
 	{
-
+		
 		var m = $$('nav.main-menu');
 		for (var i = 0; i < m.length; i++)
 		{
