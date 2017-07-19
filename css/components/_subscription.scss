@@ -92,3 +92,92 @@ padding: 0 5%;
 	}
 	}
 }
+
+body:not(.mobile) .wrapper section .inner .w.c.c2 {
+    max-width: 26rem;
+}
+
+body .wrapper section .inner .w article {
+    line-height: 1.5em;
+    display: block;
+    position: relative;
+}
+
+body .wrapper section#zostan-na-linke form .suhlas-check {
+    font-size: .6252rem;
+    line-height: .81276rem;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 0.6em;
+}
+
+body .wrapper section#zostan-na-linke form .suhlas-check input {
+    position: relative;
+    top: 3px;
+}
+
+.suhlas-check input[type=checkbox], .suhlas-check input[type=checkbox]+i+i, .suhlas-check input[type=checkbox]:checked+i {
+    display: none;
+}
+
+.suhlas-check input[type=checkbox]:checked+i+i {
+    display: inline-block;
+}
+
+#zostan-na-linke .row-small {
+    margin-bottom: 1em;
+}
+
+body:not(.mobile) .wrapper section .inner .w.c header:after {
+    max-width: 16rem;
+    margin-left: auto;
+    @media #{$mobile} {
+    	max-width: 8rem;
+    }
+}
+
+body .wrapper section .inner .w header:after {
+    content: " ";
+    position: static;
+    height: 2px;
+    background-color: #06ffa4;
+    display: block;
+    max-width: 8rem;
+    margin: 1rem auto;
+}
+
+#zostan-na-linke {
+	border: none;
+	padding-bottom: 2.8rem;
+	@media #{$mobile} {
+		padding: 2.75rem;
+	}
+	.inner {
+		border: none;
+	}
+	header {
+		padding: 0;
+		margin: 0;
+		font-size: 3.5rem;
+		line-height: 4.8rem;
+		@media #{$mobile} {
+			font-size: 2rem;
+			line-height: 2.9rem;
+		}
+		&:before {
+			content: none;
+		}
+	}
+	input {
+		font-size: 1.37rem;
+	}
+	label input.filled + span.label {
+		font-size: 0.6em;
+		top: -1.8em;
+		text-align: left;
+	}
+}
+
+.suhlas-check a {
+    color: #132a3b;
+}

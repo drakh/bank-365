@@ -4,7 +4,8 @@
  Define the variables of your dependencies in this section
 -----------------------------------------------------------*/
 var gulp = require('gulp'),
-    requireDir = require('require-dir');
+    requireDir = require('require-dir'),
+   	gulpSequence = require('gulp-sequence');
 
 /*---------------------------------------------------------
  GULP: TASKS
@@ -18,4 +19,4 @@ var tasks = requireDir('./tasks');
 -----------------------------------------------------------*/
 gulp.task('default', ['watch', 'browser-sync', 'sass', 'js', 'sprite']);
 gulp.task('lint:scss', ['scss-lint']);
-gulp.task('build', ['sass', 'move', 'js']);
+gulp.task('build', gulpSequence(['clean'], ['sass', 'move', 'js']));

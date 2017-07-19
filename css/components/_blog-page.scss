@@ -62,8 +62,8 @@
 		}
 		.image-inner {
 			@media #{$mobile} {
-			padding-left: 1rem;
-			padding-right: 0;
+				padding-left: 1rem;
+				padding-right: 0;
 			}
 		}
 		img {
@@ -83,11 +83,11 @@
 				padding-left: 0;
 			}
 			img {
-			@media #{$mobile} {
-				margin-right: auto;
-				margin-left: 0;
+				@media #{$mobile} {
+					margin-right: auto;
+					margin-left: 0;
+				}
 			}
-		}
 		}
 	}
 }
@@ -139,11 +139,18 @@
 			border: 1px solid $green;
 			border-radius: 1rem 0 0 1rem;
 			flex-basis: 50%;
-			padding: 0.2rem 0;
+			//padding: 0.2rem 0;
 		}
-		a {
+		button {
+			background-color: transparent;
+			border: none;
+		}
+		a,
+		button {
 			display: inline-block;
 			position: relative;
+							line-height: 1;
+							padding: 0.47rem 0;
 			@media #{$mobile}{
 				@include rem('font-size', 18px);
 				color: $grey-text;
@@ -176,6 +183,20 @@
 		@media #{$mobile} {
 			background-color: $green;
 			color: $dark;
+		}
+		button {
+			&:after {
+				content: "";
+				position: absolute;
+				left: 0;
+				width: 100%;
+				height: 2px;
+				background-color: $green;
+				    bottom: -.5rem;
+				    @media #{$mobile} {
+				    	content: none;
+				    }
+			}
 		}
 		a {
 			display: inline-block;
@@ -259,7 +280,8 @@ section {
 				color: $green;
 			}
 			a {
-				padding: .65em 1em 0.4em 1em;
+				line-height: 1;
+				padding: .62em 1em 0.4em 1em;
 				@include rem('font-size', 18px);
 				@media #{$mobile} {
 					padding: .65em 1em .5em 1em;
@@ -315,7 +337,9 @@ section {
 			justify-content: center;
 			color: $grey-text;
 			@include rem('font-size', 14px);
-			padding: .5em 0;
+			//padding: .5em 0;
+			padding: 0.74em 0 0.55em 0;
+			line-height: 1;
 			border: 1px solid $green;
 			border-right: none;
 			transition: background-color 0.4s;
@@ -424,11 +448,11 @@ section {
 		}
 	}
 	a {
-		    padding: .65em 1em 0.4em 1em;
+		line-height: 1;
+		padding: .62em 1em 0.4em 1em;
 		@include rem('font-size', 18px);
 		@media #{$mobile} {
 			@include rem('font-size', 14px);
-			padding: .65em 1em .5em 1em;
 		}
 	}
 	.related {
@@ -572,14 +596,15 @@ section {
 	.pure-button {
 		color: $number;
 		background-color: transparent;
-		padding: 0.65em 1em 0.4em 1em;
+		line-height: 1;
+		padding: .62em 1em 0.4em 1em;
 		border: 2px solid $number;
 		transition: .4s;
 		@include rem('font-size', 18px);
 		margin: 0;
 		@media #{$mobile} {
 			@include rem('font-size', 13px);
-			padding: 0.65em 1em 0.4em 1em;
+			//padding: 0.65em 1em 0.4em 1em;
 		}
 		&:hover,
 		&:active {

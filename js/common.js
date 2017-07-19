@@ -69,12 +69,35 @@
 		};
 	});
 
+$('#zostan-na-linke input').on('focus', function(event) {
+	$(this).addClass('filled');
+});
+
+$('#zostan-na-linke input').on('focusout', function(event) {
+	$(this).removeClass('filled');
+});
+
 	var cutWord = function cutWord() {
 		var oldText = [];
 		$('.blog-section .articles .content p').each(function(index, element) {
 			$(element).find('.read-more').remove();
 			oldText.push($(element).text());
 		});
+					if ($(window).width() < 768) {
+				$('.blog-section .articles .content p').each(function(index, element) {
+					$(element).find('.read-more').remove();
+					var text = $(element).text();
+					var newText = text.split(' ');
+					newText = newText.slice(0, 7);
+					$(element).text(newText.join(' '));
+					$(element).append('<span class="read-more">....</span>')
+				});
+			} else {
+				$('.blog-section .articles .content p').each(function(index, element) {
+					$(element).text(oldText[index]);
+					$(element).append('<span class="read-more">....</span>')
+				});
+			}
 		$(window).resize(function() {
 			if ($(window).width() < 768) {
 				$('.blog-section .articles .content p').each(function(index, element) {

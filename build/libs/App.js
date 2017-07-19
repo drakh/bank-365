@@ -68,7 +68,7 @@ var menu = new Class({
 	{
 		if (e)
 		{
-			e.stop();
+			//e.stop();
 		}
 		this.el.toggleClass('open');
 	},
@@ -76,7 +76,7 @@ var menu = new Class({
 	{
 		if (e)
 		{
-			e.stop();
+			//e.stop();
 		}
 		var h = el.get('href').replace('#', '');
 		this.el.removeClass('open');

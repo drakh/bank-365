@@ -608,6 +608,8 @@ nav
           }
           &:nth-of-type(2)
           {
+            position: relative;
+            right: -4rem;
             padding-right : 2rem;
           }
       /*&:nth-of-type(5)
@@ -623,8 +625,11 @@ nav
       }*/
       &:nth-of-type(4)
       {
-        padding-right: 6rem;
-        padding-left : 2rem;
+        /* padding-right: 6rem;
+        padding-left : 2rem; */
+        padding: 0;
+        position: relative;
+        left: -3.2rem;
         text-align   : right;
         a
         {
@@ -636,14 +641,14 @@ nav
       }
       &:nth-of-type(5)
       {
-        padding-left : 2rem;
+        /* padding-left : 2rem; */
         padding-right: 9rem;
         text-align   : right;
         a
         {
           &:after
           {
-            width: 95% !important;
+            width: 65% !important;
             right : 0;
           }
         }
@@ -1298,4 +1303,29 @@ body {
 
 body .wrapper .menu-sticky ul li:nth-of-type(5) a:after {
   width: 62% !important;
+}
+
+.pure-button {
+    //display: inline-block;
+    zoom: 1;
+    line-height: normal;
+    white-space: nowrap;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 100%;
+    padding: .5em 1em;
+/*     border: 1px solid #999;
+border: transparent;
+background-color: #e6e6e6;
+text-decoration: none;
+border-radius: 2px; */
 }
