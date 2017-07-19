@@ -1,27 +1,27 @@
-(function () {$(document).ready(function() {
+(function () {jQuery(document).ready(function() {
 
-	$(window).scroll(function() {
-		var o = 100 * $(window).scrollTop() / ($(document).height() - $(window).height());
-		$(".bar-long").css("width", o + "%")
+	jQuery(window).scroll(function() {
+		var o = 100 * jQuery(window).scrollTop() / (jQuery(document).height() - jQuery(window).height());
+		jQuery(".bar-long").css("width", o + "%")
 
-		var winTop = $(window).scrollTop();
-		var menu = $('.main-menu').height();
+		var winTop = jQuery(window).scrollTop();
+		var menu = jQuery('.main-menu').height();
 		if(winTop > menu){
-			$('.main-menu').addClass('menu-sticky');
+			jQuery('.main-menu').addClass('menu-sticky');
 		}else{
-			$('.main-menu').removeClass('menu-sticky');
+			jQuery('.main-menu').removeClass('menu-sticky');
 		}
 	});
 
-	var slider = $("#related-posts").slick({
+	var slider = jQuery("#related-posts").slick({
 		slidesToShow: 1.1,
 		slidesToScroll: 1,
 		infinity: false,
 		centerMode: false,
 		dots: true,
 		arrows: true,
-		prevArrow: $(".arrows-prev"),
-		nextArrow: $(".arrows-next"),
+		prevArrow: jQuery(".arrows-prev"),
+		nextArrow: jQuery(".arrows-next"),
 		responsive: [
 		{
 			breakpoint: 769,
@@ -32,86 +32,86 @@
 		]
 	});
 
-	$("input").on("input", function(o) {
-		"LABEL" == o.target.parentNode.tagName && $(this).val().length > 0 ? $(this).parent().addClass("focused") : $(this).parent().removeClass("focused")
+	jQuery("input").on("input", function(o) {
+		"LABEL" == o.target.parentNode.tagName && jQuery(this).val().length > 0 ? jQuery(this).parent().addClass("focused") : jQuery(this).parent().removeClass("focused")
 	})
 
-	$('#search').on('click', function(event) {
-		var modal = '[data-modal=' + $(this).attr('data-target') +  ']';
-		var element = $('body').find(modal);
+	jQuery('#search').on('click', function(event) {
+		var modal = '[data-modal=' + jQuery(this).attr('data-target') +  ']';
+		var element = jQuery('body').find(modal);
 		element.toggleClass('open');
 		if (element.hasClass('open')) {
-			$('body').removeClass('roll');
+			jQuery('body').removeClass('roll');
 		} else {
-			$('body').addClass('roll');
+			jQuery('body').addClass('roll');
 		}
 	});
 
-	$(window).on('keydown', function(event) {
-		var modal = '[data-modal=' + $(this).attr('data-target') +  ']';
-		var element = $('body').find(modal);
+	jQuery(window).on('keydown', function(event) {
+		var modal = '[data-modal=' + jQuery(this).attr('data-target') +  ']';
+		var element = jQuery('body').find(modal);
 		if (event.keyCode == 27) {
-			if ($('.modal').hasClass('open')) {
-				$('.modal').toggleClass('open');
+			if (jQuery('.modal').hasClass('open')) {
+				jQuery('.modal').toggleClass('open');
 			}
 			if (element.hasClass('open')) {
-				$('body').removeClass('roll');
+				jQuery('body').removeClass('roll');
 			} else {
-				$('body').addClass('roll');
+				jQuery('body').addClass('roll');
 			}
 		}
 	});
 
-	$('.modal').on('click', function(event) {
-		if (event.target.className == 'modal-fade' && $(this).hasClass('open')) {
-			$(this).removeClass('open');
-			$('body').toggleClass('roll');
+	jQuery('.modal').on('click', function(event) {
+		if (event.target.className == 'modal-fade' && jQuery(this).hasClass('open')) {
+			jQuery(this).removeClass('open');
+			jQuery('body').toggleClass('roll');
 		};
 	});
 
-$('#zostan-na-linke input').on('focus', function(event) {
-	$(this).addClass('filled');
+jQuery('#zostan-na-linke input').on('focus', function(event) {
+	jQuery(this).addClass('filled');
 });
 
-$('#zostan-na-linke input').on('focusout', function(event) {
-	$(this).removeClass('filled');
+jQuery('#zostan-na-linke input').on('focusout', function(event) {
+	jQuery(this).removeClass('filled');
 });
 
 	var cutWord = function cutWord() {
 		var oldText = [];
-		$('.blog-section .articles .content p').each(function(index, element) {
-			$(element).find('.read-more').remove();
-			oldText.push($(element).text());
+		jQuery('.blog-section .articles .content p').each(function(index, element) {
+			jQuery(element).find('.read-more').remove();
+			oldText.push(jQuery(element).text());
 		});
-					if ($(window).width() < 768) {
-				$('.blog-section .articles .content p').each(function(index, element) {
-					$(element).find('.read-more').remove();
-					var text = $(element).text();
+					if (jQuery(window).width() < 768) {
+				jQuery('.blog-section .articles .content p').each(function(index, element) {
+					jQuery(element).find('.read-more').remove();
+					var text = jQuery(element).text();
 					var newText = text.split(' ');
 					newText = newText.slice(0, 7);
-					$(element).text(newText.join(' '));
-					$(element).append('<span class="read-more">....</span>')
+					jQuery(element).text(newText.join(' '));
+					jQuery(element).append('<span class="read-more">....</span>')
 				});
 			} else {
-				$('.blog-section .articles .content p').each(function(index, element) {
-					$(element).text(oldText[index]);
-					$(element).append('<span class="read-more">....</span>')
+				jQuery('.blog-section .articles .content p').each(function(index, element) {
+					jQuery(element).text(oldText[index]);
+					jQuery(element).append('<span class="read-more">....</span>')
 				});
 			}
-		$(window).resize(function() {
-			if ($(window).width() < 768) {
-				$('.blog-section .articles .content p').each(function(index, element) {
-					$(element).find('.read-more').remove();
-					var text = $(element).text();
+		jQuery(window).resize(function() {
+			if (jQuery(window).width() < 768) {
+				jQuery('.blog-section .articles .content p').each(function(index, element) {
+					jQuery(element).find('.read-more').remove();
+					var text = jQuery(element).text();
 					var newText = text.split(' ');
 					newText = newText.slice(0, 7);
-					$(element).text(newText.join(' '));
-					$(element).append('<span class="read-more">....</span>')
+					jQuery(element).text(newText.join(' '));
+					jQuery(element).append('<span class="read-more">....</span>')
 				});
 			} else {
-				$('.blog-section .articles .content p').each(function(index, element) {
-					$(element).text(oldText[index]);
-					$(element).append('<span class="read-more">....</span>')
+				jQuery('.blog-section .articles .content p').each(function(index, element) {
+					jQuery(element).text(oldText[index]);
+					jQuery(element).append('<span class="read-more">....</span>')
 				});
 			}
 		});
