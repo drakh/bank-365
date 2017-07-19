@@ -26,6 +26,7 @@ var media_events = {
 
 Element.NativeEvents = Object.merge(Element.NativeEvents, media_events);
 
+
 var menu = new Class({
 	Implements: [Events, Options],
 	initialize: function (el, o)
@@ -140,7 +141,6 @@ var profile = new Class({
 var art_switcher = new Class({
 	initialize: function (el)
 	{
-		console.log('a switcher init');
 		this.el = el;
 		var s = el.getElements('.breadcrumbs .r_switch');
 		for (var i = 0; i < s.length; i++)
@@ -165,6 +165,126 @@ var art_switcher = new Class({
 		this.s[i].addClass('active');
 	}
 });
+
+var art_sharer = new Class({
+	initialize: function (el)
+	{
+		this.str = '';
+		this.el = el;
+		this.shr_el = $('share_el');
+		this.a_s = [];
+		var lis = this.shr_el.getElements('li');
+		for (var i = 0; i < lis.length; i++)
+		{
+			var a = lis[i].getElement('a');
+			a.addEvents({
+				'mousedown': this.foo.bind(this),
+				'mouseup': this.foo.bind(this),
+				'click': this.mk_share.bind(this, i)
+			});
+			lis[i].addEvents({
+				'mousedown': this.foo.bind(this),
+				'mouseup': this.foo.bind(this),
+				'click': this.mk_share.bind(this, i)
+			});
+			this.a_s[i] = a;
+		}
+		this.shr_el_sz = this.shr_el.getSize();
+		el.addEvents({
+			'mousedown': this.log_mouse_start.bind(this),
+			'mouseup': this.get_sel.bind(this)
+		});
+		window.addEvents({
+			'mousedown': this.hide_share.bind(this)
+		})
+	},
+	foo: function (e)
+	{
+		e.stop();
+	},
+	hide_share: function ()
+	{
+		this.shr_el.setStyles({
+			'display': 'none'
+		});
+		this.str = '';
+	},
+	log_mouse_start: function (e)
+	{
+		this.mouse_start = e.page;
+		this.hide_share();
+	},
+	get_sel: function (e)
+	{
+		e.stop();
+		var str = this.getSel();
+		if (str.length > 5)
+		{
+			var st = this.mouse_start;
+			var ed = e.page;
+			var x = st.x;
+			var y = st.y;
+			if (st.x > ed.x)
+			{
+				x = ed.x;
+			}
+			if (st.y > ed.y)
+			{
+				y = ed.y;
+			}
+			this.str = str;
+			this.shr_el.setStyles({
+				'display': 'block',
+				'left': x,
+				'top': (y - (this.shr_el_sz.y * 1.4))
+			});
+		}
+	},
+	deSel: function ()
+	{
+		if (document.selection && document.selection.createRange)
+		{
+			document.selection.empty();
+		}
+		else if (document.getSelection)
+		{
+			return document.getSelection().removeAllRanges();
+		}
+		else if (window.getSelection)
+		{
+			return window.getSelection().removeAllRanges();
+		}
+	},
+	getSel: function ()
+	{
+		if (document.selection && document.selection.createRange)
+		{
+			return document.selection.createRange().text;
+		}
+		else if (document.getSelection)
+		{
+			return document.getSelection().toString();
+		}
+		else if (window.getSelection)
+		{
+			return window.getSelection().toString();
+		}
+		else
+		{
+			return '';
+		}
+	},
+	mk_share: function (i, e)
+	{
+		e.stop();
+		var url = this.a_s[i].get('href');
+		url = url.replace('{{@SEL_TEXT}}', this.str);
+		this.hide_share();
+		this.deSel();
+		window.open(url);
+	}
+});
+
 var App = {
 	init: function ()
 	{
@@ -173,10 +293,16 @@ var App = {
 		this.check_cookie();
 		this.init_menus();
 		this.init_profiles();
+		
 		var main_articles = $('main_articles');
 		if (main_articles)
 		{
 			new art_switcher(main_articles);
+		}
+		var main_article = $('main_article');
+		if (main_article)
+		{
+			new art_sharer(main_article);
 		}
 	},
 	init_profiles: function ()
