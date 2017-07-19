@@ -195,7 +195,8 @@ var art_sharer = new Class({
 			'mouseup': this.get_sel.bind(this)
 		});
 		window.addEvents({
-			'mousedown': this.hide_share.bind(this)
+			'mousedown': this.hide_share.bind(this),
+			'resize': this.hide_share.bind(this)
 		})
 	},
 	foo: function (e)
@@ -236,7 +237,7 @@ var art_sharer = new Class({
 			this.shr_el.setStyles({
 				'display': 'block',
 				'left': x,
-				'top': (y - (this.shr_el_sz.y * 1.4))
+				'top': (y - (this.shr_el_sz.y))
 			});
 		}
 	},
