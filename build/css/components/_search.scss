@@ -1,0 +1,77 @@
+@import "variables";
+
+body {
+	.wrapper {
+		.search-inner {
+			position: fixed;
+			top: 12.8rem;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+}
+
+#search {
+	position: absolute;
+	right: 0;
+	top: 1.8rem;
+	@media #{$mobile} {
+		position: fixed;
+		right: 1.5rem;
+		top: 1.5rem;
+	}
+	img {
+		@media #{$mobile} {
+			width: 85%;
+		}
+	}
+}
+
+.modal {
+	z-index: -10;
+	opacity: 0;
+	transition: ease .5s;
+	section {
+		position: relative;
+		z-index: 8;
+	}
+	&.open {
+		z-index: 2;
+		opacity: 1;
+	}
+}
+
+.modal-fade {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	opacity: 0.9;
+	background-color: #FFF;
+	z-index: 2;
+}
+
+.search-inner  {
+	.row {
+		width: 100%;
+	}
+	form {
+		max-width: 60.625rem;
+		margin: 0 auto;
+		display: block;
+					@media #{$mobile} {
+			padding: 0 5rem;
+			}
+	}
+	input {
+		padding-left: 0;
+		padding-right: 0;
+		border: none;
+		border-bottom: 2px solid $number;
+		@include rem('font-size', 38px);
+		text-decoration: underline;
+		color: $dark;
+	}
+}
+

@@ -1,0 +1,182 @@
+@import "variables";
+
+.subscription {
+	padding-bottom: 0;
+	.row {
+		margin-bottom: 2.5rem;
+		@media #{$mobile} {
+			margin-bottom: 2.1rem;
+		}
+	}
+	.pure-g {
+		width: 100%;
+	}
+	header {
+		@include rem('font-size', 28px);
+		text-align: center;
+		color: $grey-text;
+		padding-bottom: 2rem;
+		@media #{$mobile} {
+			@include rem('font-size', 20px);
+			line-height: 1.4rem;
+			padding: 0.8rem 4% 0.5rem 4%;
+		}
+	}
+	input {
+		border: none;
+		border-bottom: 2px solid $dark;
+		text-align: center;
+		width: 64%;
+		display: block;
+		margin: 0 auto;
+		@media #{$mobile} {
+			@include rem('font-size', 14px);
+		}
+	}
+	a {
+		width: 9rem;
+		margin: 3rem auto;
+		padding: 0.35rem 0;
+		@include rem('font-size', 18px);
+		@media #{$mobile} {
+			padding: 0.5em 0;
+			width: 8.1rem;
+			@include rem('font-size', 14px);
+			margin: 1.2rem auto;
+		}
+	}
+}
+
+.social {
+	padding-bottom: 5.5rem;
+	@media #{$mobile} {
+		padding-bottom: 4rem;
+	}
+	ul,
+	li {
+		padding-left: 0;
+	}
+	ul {
+		list-style: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	li {
+		margin: 0 1rem;
+		a {
+			text-decoration: none;
+			@include rem('font-size', 22px);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 2.5rem;
+			height: 2.5rem;
+			color: $dark_blue;
+			border: 1px solid $dark_blue;
+			border-radius: 50%;
+			transition: 0.4s;
+			&:hover,
+			&:active {
+				    transform: scale(1.2);
+			}
+		}
+	}
+}
+
+footer.main {
+	div {
+	@media #{$mobile} {
+padding: 0 5%;
+	}
+	}
+}
+
+body:not(.mobile) .wrapper section .inner .w.c.c2 {
+    //max-width: 26rem;
+}
+
+body .wrapper section .inner .w article {
+    line-height: 1.5em;
+    display: block;
+    position: relative;
+}
+
+body .wrapper section#zostan-na-linke form .suhlas-check {
+    font-size: .6252rem;
+    line-height: .81276rem;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 0.6em;
+}
+
+body .wrapper section#zostan-na-linke form .suhlas-check input {
+    position: relative;
+    top: 3px;
+}
+
+.suhlas-check input[type=checkbox], .suhlas-check input[type=checkbox]+i+i, .suhlas-check input[type=checkbox]:checked+i {
+    display: none;
+}
+
+.suhlas-check input[type=checkbox]:checked+i+i {
+    display: inline-block;
+}
+
+#zostan-na-linke .row-small {
+    margin-bottom: 1em;
+}
+
+body:not(.mobile) .wrapper section .inner .w.c header:after {
+    max-width: 16rem;
+    margin-left: auto;
+    @media #{$mobile} {
+    	max-width: 8rem;
+    }
+}
+
+body .wrapper section .inner .w header:after {
+    content: " ";
+    position: static;
+    height: 2px;
+    background-color: #06ffa4;
+    display: block;
+    max-width: 8rem;
+    margin: 1rem auto;
+}
+
+#zostan-na-linke {
+	border: none;
+	padding-bottom: 2.8rem;
+	@media #{$mobile} {
+		padding: 2.75rem;
+	}
+	.inner {
+		border: none;
+	}
+	header {
+		padding: 0;
+		margin: 0;
+		font-size: 3.5rem;
+		line-height: 4.8rem;
+		@media #{$mobile} {
+			font-size: 2rem;
+			line-height: 2.9rem;
+		}
+		&:before {
+			content: none;
+		}
+	}
+	input {
+		font-size: 1.37rem;
+	}
+	label input.filled + span.label {
+		font-size: 0.6em;
+		top: -1.8em;
+		text-align: left;
+	}
+}
+
+.suhlas-check a {
+    color: #132a3b;
+}

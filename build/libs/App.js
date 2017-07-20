@@ -169,6 +169,7 @@ var art_switcher = new Class({
 var art_sharer = new Class({
 	initialize: function (el)
 	{
+		this.is_open = false;
 		this.str = '';
 		this.el = el;
 		this.shr_el = $('share_el');
@@ -221,7 +222,8 @@ var art_sharer = new Class({
 		window.addEvents({
 			'mousedown': this.hide_share.bind(this),
 			'resize': this.hide_share.bind(this)
-		})
+		});
+		this.hide_share();
 	},
 	clr_tm: function (e)
 	{
@@ -264,32 +266,42 @@ var art_sharer = new Class({
 	show_shr_el_shareable: function (i, e)
 	{
 		e.stop();
-		this.hide_share();
-		var el = this.shareables[i];
-		var sv = this.svgs[i];
-		var sz = sv.getSize();
-		var pos = sv.getPosition();
-		var y_off = pos.y;
-		if (el.hasClass('share'))
+		if (this.is_open === false)
 		{
-			this.shr_el.addClass('mid');
-			y_off = pos.y - 60;
+			console.log('is hidden');
+			this.hide_share();
+			var el = this.shareables[i];
+			var sv = this.svgs[i];
+			var sz = sv.getSize();
+			var pos = sv.getPosition();
+			var y_off = pos.y;
+			if (el.hasClass('share'))
+			{
+				this.shr_el.addClass('mid');
+				y_off = pos.y - 60;
+			}
+			else if (el.hasClass('images-inner'))
+			{
+				this.shr_el.addClass('down');
+				y_off = pos.y + sz.y + 20;
+			}
+			else if (el.hasClass('quote'))
+			{
+				this.shr_el.addClass('down');
+				y_off = pos.y + sz.y + 20;
+			}
+			this.show_shr_el();
+			this.shr_el.setStyles({
+				'left': (pos.x + (sz.x / 2)) - (this.shr_el_sz.x / 2),
+				'top': y_off
+			});
+			this.is_open = true;
 		}
-		else if (el.hasClass('images-inner'))
+		else
 		{
-			this.shr_el.addClass('down');
-			y_off = pos.y + sz.y + 20;
+			this.is_open = false;
+			this.hide_share();
 		}
-		else if (el.hasClass('quote'))
-		{
-			this.shr_el.addClass('down');
-			y_off = pos.y + sz.y + 20;
-		}
-		this.show_shr_el();
-		this.shr_el.setStyles({
-			'left': (pos.x + (sz.x / 2)) - (this.shr_el_sz.x / 2),
-			'top': y_off
-		});
 	},
 	show_shr_el: function ()
 	{
