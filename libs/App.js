@@ -300,7 +300,7 @@ var art_sharer = new Class({
 	},
 	get_sel: function (e)
 	{
-		e.stop();
+		//e.stop();
 		var str = this.getSel();
 		if (str.length > 5)
 		{
