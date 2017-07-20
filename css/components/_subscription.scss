@@ -188,14 +188,14 @@ body .wrapper section .inner .w header:after
   */
   .inner
   {
-    padding-top : 2.75rem;
-    border      : none;
+    /*padding-top : 2.75rem;*/
+    border : none;
   }
   header
   {
     padding     : 0;
     margin      : 0;
-    font-size   : 2.4rem;
+    font-size   : 2rem;
     line-height : 3.2rem;
     color       : $grey-text;
     @media #{$mobile} {
@@ -227,6 +227,7 @@ body .wrapper section .inner .w header:after
   button
   {
     max-width : 8rem;
+    font-size : 1rem;
   }
 }
 
